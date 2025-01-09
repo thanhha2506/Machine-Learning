@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Orders Sort</title>
+</head>
+<body>
+    <form method="post">
+        <table border="1">
+            <tr>
+                <td>min_value:</td>
+                <td><input type="text" name="min_value" id="min_value" size="15" /></td>
+            </tr>
+            <tr>
+                <td>max_value:</td>
+                <td><input type="text" name="max_value" id="max_value" size="15" /></td>
+            </tr>
+            <tr>
+                <td>Sort Type:</td>
+                <td>
+                    <input type="radio" name="sort_type" value="asc" id="asc" checked />
+                    <label for="asc">Ascending</label>
+                    <br>
+                    <input type="radio" name="sort_type" value="desc" id="desc" />
+                    <label for="desc">Descending</label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button id="do_orders" type="submit">Search And Sort Order</button>
+                </td>
+            </tr>
+        </table>
+        {% for table in tables %}
+            <h3>{{ titles[loop.index - 1] }}</h3> <!-- Hiển thị tiêu đề bảng -->
+            {{ table|safe }} <!-- Hiển thị nội dung bảng -->
+        {% endfor %}
+    </form>
+</body>
+</html>
